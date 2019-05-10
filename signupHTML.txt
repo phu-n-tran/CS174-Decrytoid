@@ -6,18 +6,18 @@
        
              str = "";
              var reg_email = /^\w+@[a-z]+\.(edu|com)$/;
-             var reg_user = /^[\w@\.]+$/; 
+             var reg_user = /^[\w_-]+$/; 
              if (!reg_email.test(signup.email.value)){
                  str += "Please enter a correct email\n";
 
              }
              if (!reg_user.test(signup.username.value)){
-                  str += "Username can only be an alphabets, digits, @, and/or dot(.)\n";
+                  str += "Username can only be an alphabets, digits, underscore(_) and \n";
 
             }
 
             if (!reg_user.test(signup.password.value)){
-                 str +="Password can only be an alphabets, digits, @, and/or dot(.)\n\n";
+                 str +="Password can only be an alphabets, digits, underscore(_) and \n";
 
             }
             if(str != "")
