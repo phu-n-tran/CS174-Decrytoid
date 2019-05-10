@@ -1,0 +1,82 @@
+<html>
+        <head>
+        <script>
+        function ValidateEmail() 
+        {
+       
+             str = "";
+             var reg_email = /^\w+@[a-z]+\.(edu|com)$/;
+             var reg_user = /^[\w@\.]+$/; 
+             if (!reg_email.test(signup.email.value)){
+                 str += "Please enter a correct email\n";
+
+             }
+             if (!reg_user.test(signup.username.value)){
+                  str += "Username can only be an alphabets, digits, @, and/or dot(.)\n";
+
+            }
+
+            if (!reg_user.test(signup.password.value)){
+                 str +="Password can only be an alphabets, digits, @, and/or dot(.)\n\n";
+
+            }
+            if(str != "")
+                 alert(str);
+            
+
+        }
+       
+        </script>
+
+        <style>
+        input[type=text], input[type=password] {
+        
+          padding: 15px;
+         
+          display: inline-block;
+          border-radius: 10px;
+          background: white;
+  
+		}
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #FFFFE0;
+          outline: none;
+          color: blue;
+        }
+        button:hover {
+          opacity:1;
+          background-color: #FFFFE0;
+        }
+
+            p.solid {
+                border-style: solid;
+                border-width: 15px;
+            }
+        </style>
+        <title>PHP Sign Up</title>
+        </head>
+        <table>
+        <p class="solid">
+        <table cellpadding="5" cellspacing="10" align="center">
+       
+        
+        <form name="signup" method="post" action="A5_authenticate2(signup).php" enctype="multipart/form-data" onsubmit="return ValidateEmail()">
+                <tr><td colspan="2" align="center">Enter your email </td> 
+                    <td colspan="2" align="center"><input type="text" name="email" placeholder = "Enter email" required></td> 
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">Enter your username</td>
+                    <td colspan="2" align="center"> <input type="text" name="username"placeholder = "Enter username" required ></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">Enter your password</td>
+                    <td colspan="2" align="center"> <input type="password" name="password" placeholder = "Enter password" required> </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"> <input type="submit" name="register" value="Register" > </td>
+                </tr>
+        </form>
+        </table>
+        </p></body>
+        <p class="solid"></p>
+        </html>
