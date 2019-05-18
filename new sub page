@@ -27,6 +27,7 @@ h3{
 color: rgb(0, 204, 255);
 }
 button{
+  background-color:grey;
   width: 23%;
   color: white;
   padding: 14px 20px; 
@@ -35,7 +36,9 @@ button{
   opacity: 0.9;
  
 }
-
+a{
+	color: white;
+}
 /* Add padding to container elements */
 .container {
   padding: 16px;
