@@ -27,7 +27,9 @@ h3{
 color: rgb(0, 204, 255);
 }
 button{
-  background-color:grey;
+
+  background-color:black;
+  font-size: 15px;
   width: 23%;
   color: white;
   padding: 14px 20px; 
@@ -61,10 +63,15 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-a:active { 
-  background-color: yellow;
+.active { 
+  background-color: #3498db;
+  color: white;
+  text-decoration: underline;
+ 
 }
-
+a:link {
+  text-decoration: none;
+}
 
 
 
@@ -75,11 +82,10 @@ a:active {
 <h2>Decryptoid</h2>
 Select cipher:
 <div class="tab">
-    <button> <a href="SubstitutionPage.php" class="SubstitutionPage" >Substitution</a></button>
-    <button> <a href="DoubleTranspositionPage.php" class="DoubleTranspositionPage">2x Transposition</a></button>
-    <button> <a href="RC4Page.php" class="RC4Page">RC4</a></button>
-    <button> <a href="A5Page.php" class="A5Page">A5/1</a></button>
-     
+    <button class="SubstitutionPage active"> <a href="SubstitutionPage.php"  >Substitution</a></button>
+    <button class="DoubleTranspositionPage"> <a href="DoubleTranspositionPage.php" >2x Transposition</a></button>
+    <button class="RC4Page"> <a href="RC4Page.php" >RC4</a></button>
+    <button class="A5Page "> <a href="A5Page.php" >A5/1</a></button>
 <table>
   <tr>
     <td width="400">
@@ -134,7 +140,7 @@ Select cipher:
 </tr>
   
 </table>
-<button> <a href="Logout.php" class="logout" active >Logout</a></button>
+<button> <a href="Logout.php" class="logout">Logout</a></button>
 </div>
 
 
