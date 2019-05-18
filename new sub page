@@ -61,7 +61,9 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-
+a:active { 
+  background-color: yellow;
+}
 
 
 
@@ -73,7 +75,7 @@ tr:nth-child(even) {
 <h2>Decryptoid</h2>
 Select cipher:
 <div class="tab">
-    <button> <a href="SubstitutionPage.php" class="SubstitutionPage" active >Substitution</a></button>
+    <button> <a href="SubstitutionPage.php" class="SubstitutionPage" >Substitution</a></button>
     <button> <a href="DoubleTranspositionPage.php" class="DoubleTranspositionPage">2x Transposition</a></button>
     <button> <a href="RC4Page.php" class="RC4Page">RC4</a></button>
     <button> <a href="A5Page.php" class="A5Page">A5/1</a></button>
@@ -93,14 +95,9 @@ Select cipher:
 
             </form>
             <br><br>
-            <label for="shift"><b>Enter key:</b></label><br>
-            <input type="text" placeholder="Enter key" name="key" required>
- 			or
-            <form action="" method="POST" enctype="multipart/form-data">
-                 <input type="file" name="image" />
+                        <label for="shift"><b>Enter a shift value:</b></label><br>
+            <input type="number" placeholder="0" name="shift" min = "0" required><br><br>
 
-            </form>
-            <br>
             <button type="submit" class="encryptbtn">Encrypt</button>
             <br><br>
             <label for="result"><b>Result</b></label><br>
@@ -122,13 +119,9 @@ Select cipher:
 
             </form>
             <br><br>
-            <label for="shift"><b>Enter key:</b></label><br>
-            <input type="text" placeholder="Enter key" name="key" required>
-             or
-            <form action="" method="POST" enctype="multipart/form-data">
-                 <input type="file" name="image" />
+                       <label for="shift"><b>Enter a shift value:</b></label><br>
+            <input type="number" placeholder="0" name="shift" min = "0" required><br><br>
 
-            </form>  <br>
             <button type="submit" class="decryptbtn">Decrypt</button>
             <br><br>
             <label for="result"><b>Result</b></label><br>
