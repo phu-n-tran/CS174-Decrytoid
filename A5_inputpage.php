@@ -28,6 +28,7 @@ session_start();
 //ini_set('session.gc_maxlifetime', 60 * 60 * 24);
 
 if(isset($_SESSION['username'])) {
+
     $username = $_SESSION['username'];
     $password = $_SESSION['password'];
     $email = $_SESSION['email'];
@@ -36,12 +37,16 @@ if(isset($_SESSION['username'])) {
 
     echo "<h3>Welcome $username!!</h3><br>";
 
+
+//    require_once  'htlm_ciphers.php';
+
     //upload file
     echo "<br><br>";
     echo<<<_END
             <html><head><title>PHP Form Upload</title></head><body>
             <form method="post" action="A5_inputpage.php" enctype="multipart/form-data">
-                    Enter File Name: <input type="text" name="textname"> <br> <br>
+                    <input type="button" name="logout" value="logout"><br><br>
+                    Enter File Name: <input type="text" name="textname" size="20"> <br> <br>
                     Select File: <input type="file" name="filename" size="20" accept=".txt">
                     <input type="submit" name="submit" value="Submit Answer">
                     </form></body>
@@ -54,6 +59,8 @@ _END;
 
     $query = "SELECT * FROM A5Table_contents";
     $result = $conn->query($query);
+
+
 
     if($_FILES) {
         //check to make sure both fields is entered
@@ -129,6 +136,6 @@ _END;
     $conn->close();
 
 }
-else echo"Please <a href='A5_authenticate3(login).php'>click here</a> to log in or <a href='A5_authenticate1.php'>click here</a> to sign up";
+else header("location: A5_authenticate1.php");
 
 ?>

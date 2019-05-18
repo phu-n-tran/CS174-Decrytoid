@@ -68,7 +68,7 @@ function dt_encryption($key, $plaintext) {
 function dt_decryption($key, $ciphertext, $row_key, $col_key) {
     /**
      * Using double transposition cipher to decrypt a ciphertext
-     * @param: $key (string) - the key that use to encrypt or decrypt
+     * @param: $key (int) - the key that use to encrypt or decrypt
      * @param: $ciphertext (string) - the message that is being encrypt or decrypt
      * @param: $row_key (array) - hold the array the random order of integer of rows that being shuffle
      * @param: $col_key (array) - hold the array the random order of integer of columns that being shuffle
@@ -112,14 +112,14 @@ function dt_decryption($key, $ciphertext, $row_key, $col_key) {
 function setup_helper($key, $message) {
     /**
      * Help setup the 2D array for encrypting and decrypting
-     * @param: $key (string) - the key that use to encrypt or decrypt
+     * @param: $key (int) - the key that use to encrypt or decrypt
      * @param: $message (string) - the message that is being encrypt or decrypt
      * @return: (array) - array[0] -> hold the (2D array) of the message where column is based on the $key size
      *                    array[1] -> hold the (int) represent # of rows
      *                    array[2] -> hold the (int) represent # of columns
      */
     // set up the value of row and column
-    $col = strlen($key);
+    $col = $key;
     $row = floor(strlen($message)/$col);
 
     if (strlen($message) % $col != 0)
@@ -142,35 +142,35 @@ function setup_helper($key, $message) {
 }
 
 
-function main() {
-    $mykey = "Sec";
-    $plaintext = "abcd";
-
-
-    $list = dt_encryption($mykey, $plaintext);
-
-    $cipher = $list[0];
-    $dkey_row = $list[1];
-    $dkey_col = $list[2];
-
-    echo 'decrypt row_key is: ';
-    foreach ($dkey_row as $i) {
-        echo $i;
-    } echo "\n";
-
-    echo 'decrypt col_key is: ';
-    foreach ($dkey_col as $i) {
-        echo $i;
-    } echo "\n";
-
-    echo "this is the cipher: $cipher\n\n";
-
-
-    echo dt_decryption($mykey, $cipher, $dkey_row, $dkey_col);
-
-}
-
-main();
+//function main() {
+//    $mykey = 3;
+//    $plaintext = "hello world 4231";
+//
+//
+//    $list = dt_encryption($mykey, $plaintext);
+//
+//    $cipher = $list[0];
+//    $dkey_row = $list[1];
+//    $dkey_col = $list[2];
+//
+//    echo 'decrypt row_key is: ';
+//    foreach ($dkey_row as $i) {
+//        echo $i;
+//    } echo "\n";
+//
+//    echo 'decrypt col_key is: ';
+//    foreach ($dkey_col as $i) {
+//        echo $i;
+//    } echo "\n";
+//
+//    echo "this is the cipher: $cipher\n\n";
+//
+//
+//    echo dt_decryption($mykey, $cipher, $dkey_row, $dkey_col);
+//
+//}
+//
+//main();
 
 
 

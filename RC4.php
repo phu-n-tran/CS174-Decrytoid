@@ -7,9 +7,9 @@
  */
 
 //global constant variable
-define('N_bits', 256);
+define('N_BITS', 256);
 
-function rc4( $key_str, $input_text ) {
+function rc4_encryption($key_str, $input_text ) {
     /**
      * Use RC4 cipher to encrypt and decrypt
      * if plaintext is pass in as arg along with key, ciphertext is produced
@@ -33,13 +33,13 @@ function rc4( $key_str, $input_text ) {
 
 
     // inintialize an array from zero to 255
-    $S = range(0, N_bits-1);
+    $S = range(0, N_BITS-1);
 
     //////////KSA///////
     $len = strlen($key_str);
     $i = $j = 0;
-    for( $index = 0; $index < N_bits; $index++ ){
-        $j = ($key_ary[$i] + $S[$index] + $j) % N_bits;
+    for($index = 0; $index < N_BITS; $index++ ){
+        $j = ($key_ary[$i] + $S[$index] + $j) % N_BITS;
 
         // swap
         $tmp = $S[$index];
@@ -54,15 +54,15 @@ function rc4( $key_str, $input_text ) {
     $i = 0;
     $j = 0;
     for ($index = 0; $index < $len; $index++) {
-        $i = ($i + 1) % N_bits;
-        $j = ($S[$i] + $j) % N_bits;
+        $i = ($i + 1) % N_BITS;
+        $j = ($S[$i] + $j) % N_BITS;
 
         //swap
         $tmp = $S[$i];
         $S[$i] = $S[$j];
         $S[$j] = $tmp;
 
-        $input_ary[$index] ^= $S[($S[$i] + $S[$j]) % N_bits];
+        $input_ary[$index] ^= $S[($S[$i] + $S[$j]) % N_BITS];
     }
 
     // convert output back to a string
@@ -73,9 +73,13 @@ function rc4( $key_str, $input_text ) {
     return $result_text;
 }
 
-$t = rc4("Secret", "Attack at dawn");
-echo $t . "\n";
-echo  rc4('Secret', $t);
+function rc4_decryption($key_str, $input_text ) {
+    return rc4_encryption($key_str, $input_text);
+}
+
+//$t = rc4_encryption("Secret", "Attack at dawn");
+//echo $t . "\n";
+//echo  rc4_decryption('Secret', $t);
 
 
 ?>

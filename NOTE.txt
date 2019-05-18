@@ -1,0 +1,3 @@
+Before run the program,
+  _change the information in the login.php file accordingly to the "to-be-used" database
+  _The home page is A5_authenticate1

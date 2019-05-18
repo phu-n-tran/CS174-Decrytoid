@@ -15,6 +15,14 @@ function sanitizeMySQL($connection, $var)
     return $var;
 }
 
+session_start();
+
+if (isset($_SESSION['check']))
+    if ($_SESSION['check'] != hash('ripemd128', $_SERVER['REMOTE_ADDR'] .$_SERVER['HTTP_USER_AGENT'])) {
+        header("location: A5_authenticate1.php");
+        exit;
+    }
+
 //login page
 //set up user
 $conn = new mysqli($hn, $un, $pw, $db);
@@ -53,7 +61,8 @@ if(isset($_SERVER['PHP_AUTH_USER']) and isset($_SERVER['PHP_AUTH_PW'])) {
 
         //$row[2] = password
         if($sani_password == $row[2]) {
-            session_start();
+
+            $_SESSION['check'] = hash('ripemd128', $_SERVER['REMOTE_ADDR'] .$_SERVER['HTTP_USER_AGENT']);
             $_SESSION['username'] = $sani_username;
             $_SESSION['password'] = $sani_password;
             $_SESSION['email'] = $row[3];

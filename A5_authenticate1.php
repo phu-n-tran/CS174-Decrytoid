@@ -18,7 +18,7 @@ echo <<<_END
         </style>
         <title>PHP Sign Up/ Login page</title></head><table>
         <p class="solid"></p>
-        <h3 align="center" >Welcome to Database 201 Website!!</h3>
+        <h3 align="center" >Welcome to Decryptoid Website!!</h3>
         <table cellpadding="5" cellspacing="10" align="center">
         <form method="post" action="A5_authenticate3(login).php" enctype="multipart/form-data">
                 <tr><td colspan="2" align="center"> <input type="submit" name="login" value="Log In" > </td></tr>

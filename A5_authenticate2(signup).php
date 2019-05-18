@@ -18,28 +18,69 @@ function sanitizeMySQL($connection, $var)
 if(isset($_POST['signup']) or isset($_POST['register'])) {
 
     echo <<<_END
-        <html>
+    <html>
         <head>
+        <script>
+        function ValidateEmail() {
+            email = document.forms["signup"]["email"];
+            username = document.forms["signup"]["username"];
+            password = document.forms["signup"]["password"];
+
+             str = "";
+             reg_email = /^\w+@[a-z]+\.(edu|com)$/;
+             reg_user = /^[\w_-]+$/;
+             
+             if (!reg_email.test(email.value)  || !reg_user.test(username.value) || !reg_user.test(password.value)) {
+                 window.alert("Either email, username, and/or password is in an incorrect format" +
+                                "\\n\\nUsername/Password contains only alphabets, digit, underscore, and dash");
+                 return false;
+             }
+                 
+            return true;
+
+        }
+        </script>
+
         <style>
+        input[type=text], input[type=password] {
+          padding: 15px;
+          display: inline-block;
+          border-radius: 10px;
+          background: white;
+		}
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #FFFFE0;
+          outline: none;
+          color: blue;
+        }
+        button:hover {
+          opacity:1;
+          background-color: #FFFFE0;
+        }
+
             p.solid {
                 border-style: solid;
                 border-width: 15px;
             }
         </style>
-        <title>PHP Sign Up</title></head><table>
+        <title>PHP Sign Up</title>
+        </head>
+        <table>
         <p class="solid">
         <table cellpadding="5" cellspacing="10" align="center">
-        <form method="post" action="A5_authenticate2(signup).php" enctype="multipart/form-data">
+       
+        
+        <form id="signup1" name="signup" method="post" action="A5_authenticate2(signup).php" enctype="multipart/form-data" onsubmit="return ValidateEmail();">
                 <tr><td colspan="2" align="center">Enter your email </td> 
-                    <td colspan="2" align="center"><input type="text" name="email"></td> 
+                    <td colspan="2" align="center"><input type="text" name="email" placeholder = "Enter email" required></td> 
                 </tr>
                 <tr>
                     <td colspan="2" align="center">Enter your username</td>
-                    <td colspan="2" align="center"> <input type="text" name="username"></td>
+                    <td colspan="2" align="center"> <input type="text" name="username"placeholder = "Enter username" required ></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">Enter your password</td>
-                    <td colspan="2" align="center"> <input type="text" name="password"> </td>
+                    <td colspan="2" align="center"> <input type="password" name="password" placeholder = "Enter password" required> </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center"> <input type="submit" name="register" value="Register" > </td>
@@ -48,6 +89,7 @@ if(isset($_POST['signup']) or isset($_POST['register'])) {
         </table>
         </p></body>
         <p class="solid"></p>
+        </html>
 _END;
 
     $exist_flag = false;
