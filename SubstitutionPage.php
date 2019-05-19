@@ -97,6 +97,8 @@ if(isset($_SESSION['username'])) {
       border: 1px solid #dddddd;
       text-align: left;
       padding: 8px;
+     
+     
     }
     
     tr:nth-child(even) {
@@ -159,7 +161,7 @@ if(isset($_SESSION['username'])) {
     <table>
       <tr>
         <td width="400">
-        <h3>Encryption</h3>
+        <h3>&nbsp&nbsp&nbsp Encryption</h3>
         <form name="fEncryption" action="SubstitutionPage.php" style="border:1px solid #ccc" method="post" enctype="multipart/form-data" onsubmit="return validate_encryption();" >
               <div class="container">
     
@@ -174,16 +176,16 @@ if(isset($_SESSION['username'])) {
                 <input type="number" placeholder="0" name="eshift" min = "0" required><br><br>
     
                 <button type="submit" class="encryptbtn" name="encryptbtn">Encrypt</button>
-                <br><br>
-                <label for="result"><b>Result</b></label><br>
-                <textarea name="eresult" row= "4" cols= "60" >
-                $my_result
-                </textarea>
+              <!--                <br><br>-->
+<!--               <label for="result"><b>Result</b></label><br>-->
+<!--                <textarea name="eresult" row= "4" cols= "60" >-->
+<!--                $my_result-->
+<!--               </textarea>-->
               </div>
         </form>
        </td>
          <td width="400">
-        <h3>Decryption</h3>
+        <h3>&nbsp&nbsp&nbsp Decryption</h3>
         <form name="fDecryption" action="SubstitutionPage.php" style="border:1px solid #ccc" method="post"  enctype="multipart/form-data" onsubmit="return validate_decryption();" >
               <div class="container">
     
@@ -198,18 +200,18 @@ if(isset($_SESSION['username'])) {
                 <input type="number" placeholder="0" name="dshift" min = "0" required><br><br>
     
                 <button type="submit" class="decryptbtn" name="decryptbtn">Decrypt</button>
-                <br><br>
-                <label for="result"><b>Result</b></label><br>
-                <textarea name="dresult" row= "4" cols= "60" >
-    
-                </textarea>
+<!--                <br><br>-->
+<!--                <label for="result"><b>Result</b></label><br>-->
+<!--                <textarea name="dresult" row= "4" cols= "60" >-->
+<!--    -->
+<!--                </textarea>-->
               </div>
         </form>
        </td>
     </tr>
       
     </table>
-    <button> <a href="Logout.php" class="logout">Logout</a></button>
+   
     </div>
     
     
@@ -255,13 +257,29 @@ _END;
 
 
 
-            echo $sub_e_text;
+            //echo $sub_e_text;
             $my_result =$sub_e_text;
 
             $my_result_converted = sub_cipher_encryption($sub_e_text, $sub_e_shift);
 
+//print result
+           print"<lable>";
+           echo "<span style='margin-left: 2%'><strong><span style='color: #0000fa'>Result</span></span></strong>";
+          // echo "&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Result</strong>";
+           echo"<br>";
+           print"</lable>";
+           print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '4' cols = '88'>";
+           echo "&nbsp".$my_result_converted;
+           print"</textarea>";
+           echo "<br><br>";
 
-            echo $my_result_converted;
+//            print"<table>";
+//            print"<tr width = '20%'>";
+//            print"<td >";
+//            echo $my_result_converted;
+//            print"</td>";
+//            print"</tr>";
+//            print"</table>";
             //if table exist, add the content
             if ($result) {
                 //INSERT STEP
@@ -323,13 +341,21 @@ _END;
 
 
 
-            echo $sub_d_text;
+            //echo $sub_d_text;
             $my_result =$sub_d_text;
 
             $my_result_converted = sub_cipher_encryption($sub_d_text, $sub_d_shift);
 
+            print"<lable>";
+            echo "<span style='margin-left: 52%'><strong><span style='color: #0000fa'>Result</span></span></strong>";
+            echo"<br>";
+            print"</lable>";
 
-            echo $my_result_converted;
+            print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '88'>";
+            echo "&nbsp&nbsp&nbsp".$my_result_converted;
+            print"</textarea></span>";
+            echo "<br><br>";
+
             //if table exist, add the content
             if ($result) {
                 //INSERT STEP
@@ -362,6 +388,14 @@ _END;
 
 
     }
+    echo<<<_logout
+    <html>
+    <body>
+     <button style="width: 144px ; margin-left: 2%"> <a href="Logout.php" class="logout">Logout</a></button>
+    </body>
+    </html>
+_logout;
+
 }
 else header("location: A5_authenticate1.php");
 
