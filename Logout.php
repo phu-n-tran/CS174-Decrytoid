@@ -13,7 +13,8 @@ session_start();
 
 if(isset($_SESSION['username'])) {
     destroy_session_and_data();
-    echo "You are now logged out!! <br> BYE!!";
+    echo "<script type='text/javascript'>alert('LOGGING OUT SUCCESSFULLY!! BYE BYE!');</script>";
+    echo "<p><a href=A5_authenticate1.php>Click here to get back the the main menu page</a>";
 }
 else header("location: A5_authenticate1.php");
 
