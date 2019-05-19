@@ -21,20 +21,19 @@ if(isset($_POST['signup']) or isset($_POST['register'])) {
     <html>
         <head>
         <script>
-        function ValidateEmail() {
-            email = document.forms["signup"]["email"];
-            username = document.forms["signup"]["username"];
-            password = document.forms["signup"]["password"];
+        function validate_input() {
+            let email = document.forms["signup"]["email"];
+            let username = document.forms["signup"]["username"];
+            let password = document.forms["signup"]["password"];
 
-             str = "";
-             reg_email = /^\w+@[a-z]+\.(edu|com)$/;
-             reg_user = /^[\w_-]+$/;
+            let reg_email = /^\w+@[a-z]+\.(edu|com)$/;
+            let reg_user = /^[\w_-]+$/;
              
-             if (!reg_email.test(email.value)  || !reg_user.test(username.value) || !reg_user.test(password.value)) {
+            if (!reg_email.test(email.value)  || !reg_user.test(username.value) || !reg_user.test(password.value)) {
                  window.alert("Either email, username, and/or password is in an incorrect format" +
-                                "\\n\\nUsername/Password contains only alphabets, digit, underscore, and dash");
+                                "\\n\\nUsername/Password contains only alphabets, digits, underscore, and dash");
                  return false;
-             }
+            }
                  
             return true;
 
@@ -70,13 +69,13 @@ if(isset($_POST['signup']) or isset($_POST['register'])) {
         <table cellpadding="5" cellspacing="10" align="center">
        
         
-        <form id="signup1" name="signup" method="post" action="A5_authenticate2(signup).php" enctype="multipart/form-data" onsubmit="return ValidateEmail();">
+        <form id="signup1" name="signup" method="post" action="A5_authenticate2(signup).php" enctype="multipart/form-data" onsubmit="return validate_input();">
                 <tr><td colspan="2" align="center">Enter your email </td> 
                     <td colspan="2" align="center"><input type="text" name="email" placeholder = "Enter email" required></td> 
                 </tr>
                 <tr>
                     <td colspan="2" align="center">Enter your username</td>
-                    <td colspan="2" align="center"> <input type="text" name="username"placeholder = "Enter username" required ></td>
+                    <td colspan="2" align="center"> <input type="text" name="username" placeholder = "Enter username" required ></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">Enter your password</td>
@@ -96,7 +95,8 @@ _END;
     $success_flag = false;
 
     if (isset($_POST['email']) and isset($_POST['username']) and isset($_POST['password'])) {
-        if ($_POST['email'] and $_POST['username'] and $_POST['password']) {
+        //validate inputs on server side
+        if (preg_match("/^\w+@[a-z]+\.(edu|com)$/", $_POST['email']) and preg_match("/^[\w_-]+$/", $_POST['username']) and preg_match("/^[\w_-]+$/", $_POST['password'])) {
             $conn = new mysqli($hn, $un, $pw, $db);
             if ($conn->connect_error) die($conn->connect_error);
 
@@ -146,7 +146,7 @@ _END;
             echo <<<_END
             <html>
             <head>
-            <p style="color:red;" align="center">One of the field(s) is/are missing </p>
+            <p style="color:red;" align="center">Invalid input format in one or more field(s)</p>
             </head></html>
 _END;
         }
