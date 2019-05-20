@@ -67,7 +67,7 @@ if(isset($_SERVER['PHP_AUTH_USER']) and isset($_SERVER['PHP_AUTH_PW'])) {
             $_SESSION['password'] = $sani_password;
             $_SESSION['email'] = $row[3];
             echo "You are now log in...<br>";
-            die("<p><a href=A5_inputpage.php>Click here to continue</a>");
+            die("<p><a href=SubstitutionPage.php>Click here to continue</a>");
         }
         else die("Invalid username/password combination   <p><a href=A5_authenticate1.php>Click here to go back</a></p>");
     }
