@@ -1,0 +1,210 @@
+echo <<<_END
+    
+    <html>
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box}
+    
+    /* Full-width input fields */
+    input[type=number], input[type=text]  {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      background: #f1f1f1;
+    }
+    
+    input[type=text]:focus, input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    
+    button:hover {
+      opacity:1;
+      background-color: red;
+    }
+    h3{
+    color: rgb(0, 204, 255);
+    }
+    button{
+      background-color:black;
+      width: 23%;
+      color: white;
+      padding: 14px 20px; 
+      border: none;
+      cursor: pointer;
+      opacity: 0.9;
+      font-size: 15px;
+     
+    }
+    a{
+        color: white;
+    }
+    /* Add padding to container elements */
+    .container {
+      padding: 16px;
+      
+    }
+    
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    
+    }
+    td{
+    vertical-align: top;
+    }
+    
+    .active { 
+      background-color: #3498db;
+      color: white;
+      text-decoration: underline;
+     
+    }
+    a:link {
+      text-decoration: none;
+    }
+    </style>
+    
+    
+        <script>
+        //allow alphabets, digits, and spaces
+        function validate_encryption() {
+            let plain = document.forms["fEncryption"]["etext"];
+             
+            //accept space and alphabets 
+            let reg_plain = /^[a-zA-Z0-9 ]+$/;
+            let reg_marker = /^\*$/;
+             
+            if (!reg_marker.test(plain.value) && !reg_plain.test(plain.value)) {
+                window.alert("Only space, digits and alphabets are allow for double transposition cipher encryption");
+                return false;
+            }
+            return true;
+        }
+        
+        //allow alphbets, digits, and stars
+        function validate_decryption() {
+            let cipher = document.forms["fDecryption"]["dtext"];
+            let col = document.forms["fDecryption"]["dcol_key"];
+            let row = document.forms["fDecryption"]["drow_key"];
+             
+            //accept space and alphabets 
+            let reg_cipher = /^[a-zA-Z0-9*]+$/;
+            let reg_marker = /^\*$/;
+            let reg_input = /^[0-9,]+/;
+            let reg_comma = /,[,]+/;
+            let reg_begin_comma = /^,/;
+            let reg_end_comma = /,$/;
+             
+            if (!reg_marker.test(cipher.value) && !reg_cipher.test(cipher.value)) {
+                window.alert("Only star (*), digits and alphabets are allow for double transposition cipher decryption");
+                return false;
+            }
+            if(!reg_input.test(col.value) || !reg_input.test(row.value)) {
+                window.alert("Only digits and comma(,) are allow for double transposition cipher decryption key");
+                return false;
+            }
+            
+            if(reg_comma.test(col.value)  || reg_comma.test(row.value)) {
+                window.alert("Can't have more than one comma(,) next to each other");
+                return false;
+            }
+            
+            if(reg_begin_comma.test(col.value)  || reg_begin_comma.test(row.value) || reg_end_comma.test(col.value)  || reg_end_comma.test(row.value)) {
+                window.alert("Can't have comma(,) at the beginning of the end");
+                return false;
+            }
+            return true;
+            
+            
+        
+        }
+        </script>
+    
+    
+    <body>
+    <h2>Decryptoid</h2>
+    Select cipher:
+    <div class="tab">
+        <button class="SubstitutionPage"> <a href="SubstitutionPage.php"  >Substitution</a></button>
+        <button class="DoubleTranspositionPage active"> <a href="DoubleTranspositionPage.php" >Double Transposition</a></button>
+        <button class="RC4Page"> <a href="RC4Page.php" >RC4</a></button>
+        <button class="A5Page"> <a href="A5Page.php" >A5/1</a></button>
+        
+    <table>
+     <tr>
+     <p></p>
+    <th>&nbsp&nbsp&nbsp&nbsp<strong><span span style='color:rgb(0, 204, 255);'>Encryption</span></strong</th>
+   <th>&nbsp&nbsp&nbsp&nbsp<strong><span span style='color:rgb(0, 204, 255);'>Decryption</span></strong</th>
+   
+  </tr>
+      <tr>
+        <td width="400">
+          
+        <form name="fEncryption" action="DoubleTranspositionPage.php" style="border:1px solid #ccc" method="post" enctype="multipart/form-data" onsubmit="return validate_encryption();">
+              <div class="container">
+                <label for="plaintext"><b>Enter a plain text:</b></label><br>
+                <input type="text" name="etext" placeholder="Plaintext (put * in this field if want to use upload file else this field will be choose as encrypt file)" required>
+                or
+                <input type="file" name="eimage" accept=".txt" />
+                     
+                <br><br>
+                <label for="column"><b>Enter number of Columns:</b></label><br>
+                <input type="number" placeholder="Number of Column" name="ecolumn" min = "0" required>
+                
+    
+    
+                <br><br>
+                
+                <button type="submit" class="encryptbtn" name="encryptbtn">Encrypt</button>
+             
+              
+               
+                
+              </div>
+        </form>
+       </td>
+         <td width="400">
+       
+        <form name="fDecryption" action="DoubleTranspositionPage.php" style="border:1px solid #ccc"  method="post"  enctype="multipart/form-data" onsubmit="return validate_decryption();">
+              <div class="container">
+                <label for="ciphertext"><b>Enter a cipher text:</b></label><br>
+                <input type="text" name="dtext" placeholder="Cipher text (put * in this field if want to use upload file else this field will be choose as decrypt file)" required>
+                or
+                <input type="file" name="dimage" accept=".txt" />
+                
+                <br><br>
+                <label for="column"><b>Enter number of Columns:</b></label><br>
+                <input type="number" placeholder="Number of Column" name="dcolumn" min = "1" required>
+                
+                     
+                <br>
+                <label for="drow_key"><b>Enter your row key:</b></label><br>
+                <input type="text" placeholder="Sequence of numbers represent row key: 2,0,1" name="drow_key" required>
+                
+                <br>
+                <label for="dcol_key"><b>Enter your column key:</b></label><br>
+                <input type="text" placeholder="Sequence of numbers represent column key: 2,0,1" name="dcol_key" required>
+    
+    
+                <br><br>
+                <button type="submit" class="decryptbtn" name="decryptbtn">Decrypt</button>
+               
+              </div>
+        </form>
+       </td>
+    </tr>
+      
+    </table>
+     <button> <a href="Logout.php" class="logout">Logout</a></button>
+    </body>
+    </html>
+_END;
