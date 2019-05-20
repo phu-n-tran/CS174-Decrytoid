@@ -310,7 +310,7 @@ _END;
 
             echo"<br>";
             print"</lable>";
-            print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '10' cols = '88'>";
+            print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '10' cols = '88' style='font-size: 15px'>";
             echo "&nbsp Cihertext: ".$dt_ciphertext_result;
             echo "&#13&#10&nbsp Row key: ".$str_row;
             echo "&#13&#10&nbsp Column key: ".$str_col;
@@ -425,7 +425,7 @@ _END;
             echo"<br>";
             print"</lable>";
 
-            print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '88'>";
+            print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '88' style='font-size: 15px'>";
             echo $my_result_str;
             print"</textarea></span>";
             echo "<br><br>";
