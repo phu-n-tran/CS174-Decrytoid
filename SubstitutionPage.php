@@ -200,11 +200,7 @@ if(isset($_SESSION['username'])) {
                 <input type="number" placeholder="0" name="dshift" min = "0" required><br><br>
     
                 <button type="submit" class="decryptbtn" name="decryptbtn">Decrypt</button>
-<!--                <br><br>-->
-<!--                <label for="result"><b>Result</b></label><br>-->
-<!--                <textarea name="dresult" row= "4" cols= "60" >-->
-<!--    -->
-<!--                </textarea>-->
+
               </div>
         </form>
        </td>
@@ -235,7 +231,7 @@ _END;
         //server side check
         if( preg_match("/^\*$/", $_POST['etext']) or preg_match("/^[a-zA-Z ]+$/", $_POST['etext'])) {
 
-            $ciper_type = "substitution cipher";
+            $ciper_type = "Substitution Cipher Encryption";
             $sub_e_text = sanitizeMySQL($conn, $_POST['etext']);
             $sub_e_shift = sanitizeMySQL($conn, $_POST['eshift']);
 
@@ -264,7 +260,7 @@ _END;
 
 //print result
            print"<lable>";
-           echo "<span style='margin-left: 2%'><strong><span style='color: #0000fa'>Result</span></span></strong>";
+           echo "<span style='margin-left: 2%'><strong><span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
           // echo "&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Result</strong>";
            echo"<br>";
            print"</lable>";
@@ -319,7 +315,7 @@ _END;
         //server side check
         if( preg_match("/^\*$/", $_POST['dtext']) or preg_match("/^[a-zA-Z ]+$/", $_POST['dtext'])) {
 
-            $ciper_type = "substitution cipher";
+            $ciper_type = "substitution cipher Decryption";
             $sub_d_text = sanitizeMySQL($conn, $_POST['dtext']);
             $sub_d_shift = sanitizeMySQL($conn, $_POST['dshift']);
 
@@ -347,7 +343,7 @@ _END;
             $my_result_converted = sub_cipher_encryption($sub_d_text, $sub_d_shift);
 
             print"<lable>";
-            echo "<span style='margin-left: 52%'><strong><span style='color: #0000fa'>Result</span></span></strong>";
+            echo "<span style='margin-left: 52%'><strong><span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
             echo"<br>";
             print"</lable>";
 
