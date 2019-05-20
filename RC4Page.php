@@ -67,21 +67,22 @@ if(isset($_SESSION['username'])) {
     
     button{
       background-color:black;
-      font-size: 15px;
       width: 23%;
       color: white;
-      padding: 10px 20px; 
+      padding: 14px 20px; 
       border: none;
       cursor: pointer;
       opacity: 0.9;
+      font-size: 15px;
+     
     }
-    
     a{
         color: white;
     }
     /* Add padding to container elements */
     .container {
       padding: 16px;
+      
     }
     
     table {
@@ -94,12 +95,10 @@ if(isset($_SESSION['username'])) {
       border: 1px solid #dddddd;
       text-align: left;
       padding: 8px;
-     
-     
-    }
     
-    tr:nth-child(even) {
-      background-color: #dddddd;
+    }
+    td{
+    vertical-align: top;
     }
     
     .active { 
@@ -152,10 +151,11 @@ if(isset($_SESSION['username'])) {
     <h2>Decryptoid</h2>
     Select cipher:
     <div class="tab">
-        <button class="SubstitutionPage "> <a href="SubstitutionPage.php"  >Substitution</a></button>&nbsp;
-        <button class="DoubleTranspositionPage"> <a href="DoubleTranspositionPage.php" >Double Transposition</a></button>
-        <button class="RC4Page active"> <a href="RC4Page.php" >RC4</a></button>
-        <button class="A5Page "> <a href="A5_1Page.php" >A5/1</a></button>
+         <button class="SubstitutionPage " onclick="window.location.href = 'SubstitutionPage.php';"> <a href="SubstitutionPage.php"  >Substitution</a></button>
+        <button class="DoubleTranspositionPage" onclick="window.location.href = 'DoubleTranspositionPage.php';"> <a href="DoubleTranspositionPage.php" >Double Transposition</a></button>
+        <button class="RC4Page active" onclick="window.location.href = 'RC4Page.php';"> <a href="RC4Page.php" >RC4</a></button>
+        <button class="A51Page " onclick="window.location.href = 'A5_1Page.php';"> <a href="A5_1Page.php" >A5/1</a></button>
+
     <table>
       <tr>
         <td width="400">

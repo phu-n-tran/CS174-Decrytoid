@@ -150,10 +150,11 @@ if(isset($_SESSION['username'])) {
     <h2>Decryptoid</h2>
     <strong><span style="color: #0066ff" Select cipher:</strong>
     <div class="tab">
-        <button class="SubstitutionPage "> <a href="SubstitutionPage.php"  >Substitution</a></button>
-        <button class="DoubleTranspositionPage"> <a href="DoubleTranspositionPage.php" >Double Transposition</a></button>
-        <button class="RC4Page"> <a href="RC4Page.php" >RC4</a></button>
-        <button class="A5Page active"> <a href="A5_1Page.php" >A5/1</a></button>
+         <button class="SubstitutionPage " onclick="window.location.href = 'SubstitutionPage.php';"> <a href="SubstitutionPage.php"  >Substitution</a></button>
+        <button class="DoubleTranspositionPage" onclick="window.location.href = 'DoubleTranspositionPage.php';"> <a href="DoubleTranspositionPage.php" >Double Transposition</a></button>
+        <button class="RC4Page" onclick="window.location.href = 'RC4Page.php';"> <a href="RC4Page.php" >RC4</a></button>
+        <button class="A51Page active " onclick="window.location.href = 'A5_1Page.php';"> <a href="A5_1Page.php" >A5/1</a></button>
+
     <table>
       <tr>
         <td width="400">
