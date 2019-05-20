@@ -259,7 +259,7 @@ _END;
 
             echo"<br>";
             print"</lable>";
-            print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '4' cols = '88' style='font-size: 15px'>";
+            print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '4' cols = '77' style='font-size: 15px'>";
             echo $my_result_converted;
             print"</textarea>";
             echo "<br><br>";
@@ -335,7 +335,7 @@ _END;
             echo"<br>";
             print"</lable>";
 
-            print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '88' style='font-size: 15px'>";
+            print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '77' style='font-size: 15px'>";
             echo $my_result_converted;
             print"</textarea></span>";
             echo "<br><br>";
