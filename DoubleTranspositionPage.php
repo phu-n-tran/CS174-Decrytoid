@@ -94,11 +94,12 @@ if(isset($_SESSION['username'])) {
       border: 1px solid #dddddd;
       text-align: left;
       padding: 8px;
+    
+    }
+    td{
+    vertical-align: top;
     }
     
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
     .active { 
       background-color: #3498db;
       color: white;
@@ -177,9 +178,15 @@ if(isset($_SESSION['username'])) {
         <button class="A5Page"> <a href="A5Page.php" >A5/1</a></button>
         
     <table>
+     <tr>
+     <p></p>
+    <th>&nbsp&nbsp&nbsp&nbsp<strong><span span style='color:rgb(0, 204, 255);'>Encryption</span></strong</th>
+   <th>&nbsp&nbsp&nbsp&nbsp<strong><span span style='color:rgb(0, 204, 255);'>Decryption</span></strong</th>
+   
+  </tr>
       <tr>
         <td width="400">
-           <h3>Encryption</h3>
+          
         <form name="fEncryption" action="DoubleTranspositionPage.php" style="border:1px solid #ccc" method="post" enctype="multipart/form-data" onsubmit="return validate_encryption();">
               <div class="container">
                 <label for="plaintext"><b>Enter a plain text:</b></label><br>
@@ -196,15 +203,15 @@ if(isset($_SESSION['username'])) {
                 <br><br>
                 
                 <button type="submit" class="encryptbtn" name="encryptbtn">Encrypt</button>
-                <br><br>
-                <label for="result"><b>Result</b></label><br>
-                <textarea row= "4" cols= "60" >
-                </textarea>
+             
+              
+               
+                
               </div>
         </form>
        </td>
          <td width="400">
-        <h3>Decryption</h3>
+       
         <form name="fDecryption" action="DoubleTranspositionPage.php" style="border:1px solid #ccc"  method="post"  enctype="multipart/form-data" onsubmit="return validate_decryption();">
               <div class="container">
                 <label for="ciphertext"><b>Enter a cipher text:</b></label><br>
@@ -228,11 +235,7 @@ if(isset($_SESSION['username'])) {
     
                 <br><br>
                 <button type="submit" class="decryptbtn" name="decryptbtn">Decrypt</button>
-                <br><br>
-                <label for="result"><b>Result</b></label><br>
-                <textarea row= "4" cols= "60" >
-    
-                </textarea>
+               
               </div>
         </form>
        </td>
@@ -243,6 +246,7 @@ if(isset($_SESSION['username'])) {
     </body>
     </html>
 _END;
+
 
 
     //connect to mysql
