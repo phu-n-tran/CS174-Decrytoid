@@ -155,7 +155,7 @@ if(isset($_SESSION['username'])) {
         <button class="SubstitutionPage "> <a href="SubstitutionPage.php"  >Substitution</a></button>&nbsp;
         <button class="DoubleTranspositionPage"> <a href="DoubleTranspositionPage.php" >Double Transposition</a></button>
         <button class="RC4Page active"> <a href="RC4Page.php" >RC4</a></button>
-        <button class="A5Page "> <a href="A5Page.php" >A5/1</a></button>
+        <button class="A5Page "> <a href="A5_1Page.php" >A5/1</a></button>
     <table>
       <tr>
         <td width="400">
@@ -260,7 +260,7 @@ _END;
             echo"<br>";
             print"</lable>";
             print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '4' cols = '88'>";
-            echo "&nbsp".$my_result_converted;
+            echo $my_result_converted;
             print"</textarea>";
             echo "<br><br>";
 
@@ -336,7 +336,7 @@ _END;
             print"</lable>";
 
             print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '88'>";
-            echo "&nbsp&nbsp&nbsp".$my_result_converted;
+            echo $my_result_converted;
             print"</textarea></span>";
             echo "<br><br>";
 

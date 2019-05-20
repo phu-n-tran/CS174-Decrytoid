@@ -175,7 +175,7 @@ if(isset($_SESSION['username'])) {
         <button class="SubstitutionPage"> <a href="SubstitutionPage.php"  >Substitution</a></button>
         <button class="DoubleTranspositionPage active"> <a href="DoubleTranspositionPage.php" >Double Transposition</a></button>
         <button class="RC4Page"> <a href="RC4Page.php" >RC4</a></button>
-        <button class="A5Page"> <a href="A5Page.php" >A5/1</a></button>
+        <button class="A5Page"> <a href="A5_Page.php" >A5/1</a></button>
         
     <table>
      <tr>
@@ -242,7 +242,7 @@ if(isset($_SESSION['username'])) {
     </tr>
       
     </table>
-     <button> <a href="Logout.php" class="logout">Logout</a></button>
+   
     </body>
     </html>
 _END;
@@ -291,18 +291,32 @@ _END;
             $dt_row_key = $my_result_converted_array[1]; //array of number
             $dt_col_key = $my_result_converted_array[2]; //array of number
 
-    //PRINT THIS
-            echo "ciphertext:    ".  $dt_ciphertext_result;
-            //    echo 'decrypt row_key is: ';
-            echo "<br>row key is";
-            foreach ($dt_row_key as $i) {
-                echo $i . ",";
-            } echo "\n";
+            //PRINT THIS
+            //echo "ciphertext:    ".  $dt_ciphertext_result;
 
-            echo '<br>col key is: ';
+            $str_row = "";
+            foreach ($dt_row_key as $i) {
+                $str_row .= $i . ",";
+            }
+            //$str_row = rtrim($str_row, ',');
+            $str_col = "";
             foreach ($dt_col_key as $i) {
-                echo $i . ",";
-            } echo "\n";
+                $str_col .= $i . ",";
+            }
+           // $str_col = rtrim($str_col, ',');
+            echo "<br>";
+            print"<lable>";
+            echo "<span style='margin-left: 2%'><strong><span span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
+
+            echo"<br>";
+            print"</lable>";
+            print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '10' cols = '88'>";
+            echo "&nbsp Cihertext: ".$dt_ciphertext_result;
+            echo "&#13&#10&nbsp Row key: ".$str_row;
+            echo "&#13&#10&nbsp Column key: ".$str_col;
+            print"</textarea>";
+
+
 //!!!!!!!!!!!!!!!!!!!!!!!!!   END   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -403,8 +417,19 @@ _END;
             if($my_result_str == false)  die("<script type='text/javascript'>alert('Either row or column not match with the size of the message');</script>");
 
 
-    //PRINT THIS
+            //PRINT THIS
+           // echo $my_result_str;
+
+            print"<lable>";
+            echo "<span style='margin-left: 52%'><strong><span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
+            echo"<br>";
+            print"</lable>";
+
+            print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '88'>";
             echo $my_result_str;
+            print"</textarea></span>";
+            echo "<br><br>";
+
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!   END   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -443,14 +468,14 @@ _END;
 
 
     }
-
-
-
-
-
-
-
-
+    echo "<br><br>";
+    echo<<<_logout
+    <html>
+    <body>
+     <button style="width: 144px ; margin-left: 2%"> <a href="Logout.php" class="logout">Logout</a></button>
+    </body>
+    </html>
+_logout;
 
 }
 else header("location: A5_authenticate1.php");

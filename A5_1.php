@@ -167,11 +167,11 @@ function a5_1_decryption($ciphertext) {
 
 }
 
-
-//1010101010101010101110011001100110011001111100001111000011110000
-$cipher = a5_1_encryption("hello #world");
-echo $cipher . "\n";
-echo a5_1_decryption($cipher);
+//
+////1010101010101010101110011001100110011001111100001111000011110000
+//$cipher = a5_1_encryption("hello #world");
+//echo $cipher . "\n";
+//echo a5_1_decryption($cipher);
 
 
 

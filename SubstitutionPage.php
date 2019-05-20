@@ -157,7 +157,7 @@ if(isset($_SESSION['username'])) {
         <button class="SubstitutionPage active"> <a href="SubstitutionPage.php"  >Substitution</a></button>
         <button class="DoubleTranspositionPage"> <a href="DoubleTranspositionPage.php" >Double Transposition</a></button>
         <button class="RC4Page"> <a href="RC4Page.php" >RC4</a></button>
-        <button class="A5Page "> <a href="A5Page.php" >A5/1</a></button>
+        <button class="A51Page "> <a href="A5_1Page.php" >A5/1</a></button>
     <table>
       <tr>
         <td width="400">
@@ -258,16 +258,16 @@ _END;
 
             $my_result_converted = sub_cipher_encryption($sub_e_text, $sub_e_shift);
 
-//print result
-           print"<lable>";
-           echo "<span style='margin-left: 2%'><strong><span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
-          // echo "&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Result</strong>";
-           echo"<br>";
-           print"</lable>";
-           print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '4' cols = '88'>";
-           echo "&nbsp".$my_result_converted;
-           print"</textarea>";
-           echo "<br><br>";
+            //print result
+               print"<lable>";
+               echo "<span style='margin-left: 2%'><strong><span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
+              // echo "&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Result</strong>";
+               echo"<br>";
+               print"</lable>";
+               print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '4' cols = '88'>";
+               echo $my_result_converted;
+               print"</textarea>";
+               echo "<br><br>";
 
 //            print"<table>";
 //            print"<tr width = '20%'>";
@@ -340,7 +340,7 @@ _END;
             //echo $sub_d_text;
             $my_result =$sub_d_text;
 
-            $my_result_converted = sub_cipher_encryption($sub_d_text, $sub_d_shift);
+            $my_result_converted = sub_cipher_decryption($sub_d_text, $sub_d_shift);
 
             print"<lable>";
             echo "<span style='margin-left: 52%'><strong><span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
@@ -348,7 +348,7 @@ _END;
             print"</lable>";
 
             print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '88'>";
-            echo "&nbsp&nbsp&nbsp".$my_result_converted;
+            echo $my_result_converted;
             print"</textarea></span>";
             echo "<br><br>";
 

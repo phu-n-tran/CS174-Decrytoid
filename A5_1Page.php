@@ -253,7 +253,7 @@ if( preg_match("/^\*$/", $_POST['etext']) or preg_match("/^[a-zA-Z0-9 ]+$/", $_P
     echo"<br>";
     print"</lable>";
     print"&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name = 'eresult' row = '4' cols = '88'>";
-    echo "&nbsp".$my_result_converted;
+    echo $my_result_converted;
     print"</textarea>";
     echo "<br><br>";
 
@@ -329,7 +329,7 @@ else if (isset($_POST['decryptbtn'])) {
         print"</lable>";
 
         print"<span style='margin-left: 52%' ><textarea name = 'dresult' row = '4' cols = '88'>";
-        echo "&nbsp&nbsp&nbsp".$my_result_converted;
+        echo $my_result_converted;
         print"</textarea></span>";
         echo "<br><br>";
 

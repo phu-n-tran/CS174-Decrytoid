@@ -76,7 +76,7 @@ function rc4_encryption($key_str, $input_text ) {
 function rc4_decryption($key_str, $input_text ) {
     return rc4_encryption($key_str, $input_text);
 }
-
+//
 //$t = rc4_encryption("Secret", "Attack at dawn");
 //echo $t . "\n";
 //echo  rc4_decryption('Secret', $t);
