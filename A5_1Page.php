@@ -159,7 +159,7 @@ if(isset($_SESSION['username'])) {
         <td width="400">
         <h3>&nbsp&nbsp&nbsp Encryption</h3>
        
-       
+        
         <form name="fEncryption" action="A5_1Page.php" style="border:1px solid #ccc" method="post" enctype="multipart/form-data" onsubmit="return validate_encryption();" >
               <div class="container">
     
@@ -221,7 +221,7 @@ if (isset($_POST['encryptbtn'])) {
 //server side check
 if( preg_match("/^\*$/", $_POST['etext']) or preg_match("/^[a-zA-Z0-9 ]+$/", $_POST['etext'])) {
 
-    $ciper_type = "A5/1 cipher";
+    $ciper_type = "A5/1 Cipher Encryption";
     $a51_e_text = sanitizeMySQL($conn, $_POST['etext']);
     //$sub_e_shift = sanitizeMySQL($conn, $_POST['eshift']);
 
@@ -248,7 +248,7 @@ if( preg_match("/^\*$/", $_POST['etext']) or preg_match("/^[a-zA-Z0-9 ]+$/", $_P
     $my_result_converted = a5_1_encryption($a51_e_text);
 //    $my_result_converted = sub_cipher_encryption($sub_e_text, $sub_e_shift);
     print"<lable>";
-    echo "<span style='margin-left: 2%'><strong><span style='color: #0000fa'>Result</span></span></strong>";
+    echo "<span style='margin-left: 2%'><strong><span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
     // echo "&nbsp&nbsp&nbsp&nbsp&nbsp<strong>Result</strong>";
     echo"<br>";
     print"</lable>";
@@ -285,7 +285,6 @@ if( preg_match("/^\*$/", $_POST['etext']) or preg_match("/^[a-zA-Z0-9 ]+$/", $_P
 
 }//server side encryptinon validate input end
 
-//HDHDHDHHHHHHHHHHHHHHHHHHHHHHHHHH
     else
         echo "<script type='text/javascript'>alert('Only space and alphabets are allow for substitution cipher');</script>";
 
@@ -297,7 +296,7 @@ else if (isset($_POST['decryptbtn'])) {
     //server side check
     if( preg_match("/^\*$/", $_POST['dtext']) or preg_match("/^[10]+$/", $_POST['dtext'])) {
 
-        $ciper_type = "A5/1 cipher";
+        $ciper_type = "A5/1 Cipher Decryption";
         $a51_d_text = sanitizeMySQL($conn, $_POST['dtext']);
        // $sub_d_shift = sanitizeMySQL($conn, $_POST['dshift']);
 
@@ -325,7 +324,7 @@ else if (isset($_POST['decryptbtn'])) {
         $my_result_converted =a5_1_decryption($a51_d_text);
 
         print"<lable>";
-        echo "<span style='margin-left: 52%'><strong><span style='color: #0000fa'>Result</span></span></strong>";
+        echo "<span style='margin-left: 52%'><strong><span style='color:rgb(0, 204, 255);'>Result</span></span></strong>";
         echo"<br>";
         print"</lable>";
 
